@@ -1,18 +1,16 @@
 {
   "name": "ES6-React-Boilerplate",
   "version": "1.0.0",
-  "description": "A new Webpack boilerplate with hot reloading React components, and error handling on module and component level.",
+  "description": "A React boilerplate with babel and webpack",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist",
-    "build:webpack": "cross-env NODE_ENV=production webpack --config tasks/webpack.config.prod.js",
     "build": "NODE_ENV=production babel-node tasks/run build",
     "start": "babel-node tasks/devServer.js",
     "lint": "eslint src"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/samfairbairn/ES6-React-Boilerplate"
   },
   "keywords": [
     "react",
@@ -27,10 +25,10 @@
     "babel",
     "react-transform"
   ],
-  "author": "",
+  "author": "samfairbairn",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/samfairbairn/ES6-React-Boilerplate/issues"
   },
   "homepage": "https://github.com/gaearon/react-transform-boilerplate",
   "devDependencies": {

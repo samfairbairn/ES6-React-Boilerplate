@@ -1,5 +1,5 @@
 import ExtractTextPlugin from "extract-text-webpack-plugin";
-import ModernizrWebpackPlugin from "modernizr-webpack-plugin";
+//import ModernizrWebpackPlugin from "modernizr-webpack-plugin";
 import path from 'path';
 import webpack from 'webpack';
 
@@ -24,14 +24,14 @@ export default {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new ModernizrWebpackPlugin({
+    /*new ModernizrWebpackPlugin({
       filename: `./modernizr`,
       noChunk: true,
       'feature-detects': [
         'css/transforms3d',
         'css/transforms'
       ]
-    }),
+    }),*/
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     //new ExtractTextPlugin(SETTINGS.production.styles_target + ".css", {allChunks: true})
