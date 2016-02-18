@@ -2,13 +2,13 @@
 
 ##Building
 
-Install the dependencies
+Install the dependencies  
 `npm install`
 
-Run webpack and start a dev server
+Run webpack and start a dev server  
 `npm start`
 
-Create a build
+Create a build  
 `npm run build`
 
 ## Tools
