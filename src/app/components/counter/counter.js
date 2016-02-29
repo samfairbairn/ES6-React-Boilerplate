@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './counter.scss';
 
 export default class extends Component {
   constructor(props) {
     super(props);
-    this.state = { counter: 0 };
     this.interval = setInterval(() => this.tick(), 1000);
   }
 
   tick() {
-    this.setState({
-      counter: this.state.counter + this.props.increment
-    });
+    this.props.onTick(this.props.id);
   }
 
   componentWillUnmount() {
@@ -21,7 +18,7 @@ export default class extends Component {
   render() {
     return (
       <p style={{ color: this.props.color }}>
-        Counter ({this.props.increment}): {this.state.counter}
+        Counter ({this.props.increment}): {this.props.counter}
       </p>
     );
   }

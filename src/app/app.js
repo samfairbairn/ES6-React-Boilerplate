@@ -1,16 +1,51 @@
-import React, { Component } from 'react';
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
 import Header from './components/header/Header'
 import './app.scss';
 
-export default class extends Component {
+const resizeBrowser = 'RESIZE_BROWSER';
+
+class App extends Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  static propTypes = {
+    width: PropTypes.number.isRequired,
+  };
+
+  componentWillMount() {
+  }
+
+  componentWillReceiveProps(nextProps) {
+  }
+
+  componentDidMount() {
+  }
+
   render() {
+
+    const { width, children } = this.props;
+
     return (
       <div>
         <Header />
         <div className="App-content">
-          { this.props.children }
+          { width }
+          { children }
         </div>
       </div>
   );
   }
 }
+
+const mapStateToProps = (state) => {
+  //console.log();
+  return {
+    width: state.browser.width
+  }
+}
+
+
+export default connect(mapStateToProps)(App);
