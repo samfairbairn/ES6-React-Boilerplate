@@ -4,7 +4,8 @@ import './counter.scss';
 export default class extends Component {
   constructor(props) {
     super(props);
-    this.interval = setInterval(() => this.tick(), 1000);
+    //this.interval = setInterval(() => this.tick(), 1000);
+    this.tick = this.tick.bind(this);
   }
 
   tick() {
@@ -12,14 +13,19 @@ export default class extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval);
+    //clearInterval(this.interval);
   }
 
   render() {
     return (
-      <p style={{ color: this.props.color }}>
-        Counter ({this.props.increment}): {this.props.counter}
-      </p>
+      <div>
+        <p style={{ color: this.props.color }}>
+          Counter ({this.props.increment}): {this.props.counter}
+        </p>
+        <a onClick={this.tick}>
+          increment
+        </a>
+      </div>
     );
   }
 }

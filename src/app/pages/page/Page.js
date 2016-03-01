@@ -43,7 +43,7 @@ class Page extends Component {
     return (
       <div>
         { this.renderCounters() }
-        <img src={bigImage} />
+        <img width="100" src={bigImage} />
       </div>
     )}
 }
