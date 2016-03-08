@@ -17,10 +17,10 @@ export default function counter (state = initialState /* {} */, action) {
       key = key + 1;
 
       return state
-        .set('key', key)
-        .set('counter', action.counter ? action.counter : state.counter)
-        .set('increment', action.increment ? action.increment : state.increment)
-        .set('color', action.color ? action.color : state.color);
+        .set('key', key || action.id)
+        .set('counter', action.counter || state.counter)
+        .set('increment', action.increment || state.increment)
+        .set('color', action.color || state.color);
 
       /*
       * without immutable

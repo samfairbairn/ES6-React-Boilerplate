@@ -1,3 +1,5 @@
+import ExtractTextPlugin from "extract-text-webpack-plugin";
+//import ModernizrWebpackPlugin from "modernizr-webpack-plugin";
 var path = require('path');
 var webpack = require('webpack');
 
@@ -6,14 +8,13 @@ var APP_PATH = path.resolve(ROOT_PATH, 'src');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 export default {
-  devtool: 'source-map',
   entry: [
     './src/app/index'
   ],
   output: {
     path: BUILD_PATH,
     filename: 'bundle.js',
-    //publicPath: "/"
+    //publicPath: "/build/"
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),

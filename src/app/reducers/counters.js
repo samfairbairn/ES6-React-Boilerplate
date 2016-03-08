@@ -1,8 +1,36 @@
 import { Record, List } from 'immutable';
 import counter from './counter';
+import { NICE, SUPER_NICE } from '../common/constants';
 
 const InitialState = Record({
-  counters: List()
+  counters: List([
+    counter(undefined, {
+      type: 'ADD_COUNTER',
+      counter: 0,
+      increment: 1,
+      color: NICE
+    }),
+    counter(undefined, {
+      type: 'ADD_COUNTER',
+      counter: 0,
+      increment: 5,
+      color: SUPER_NICE
+    }),
+    counter(undefined, {
+      type: 'ADD_COUNTER',
+      counter: 0,
+      increment: 3
+    }),
+    counter(undefined, {
+      type: 'ADD_COUNTER',
+    }),
+    counter(undefined, {
+      type: 'ADD_COUNTER',
+      counter: 100,
+      increment: undefined,
+      color: 'blue'
+    })
+  ])
 });
 const initialState = new InitialState;
 

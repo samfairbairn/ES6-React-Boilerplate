@@ -59,6 +59,7 @@
     "immutable-devtools": "0.0.6",
     "mkdirp": "^0.5.1",
     "modernizr": "3.3.1",
+    "modernizr-webpack-plugin": "^1.0.5",
     "ncp": "^2.0.0",
     "node-sass":"^3.4.1",
     "rimraf": "^2.4.3",

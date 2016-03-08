@@ -1,7 +1,8 @@
 import ExtractTextPlugin from "extract-text-webpack-plugin";
-//import ModernizrWebpackPlugin from "modernizr-webpack-plugin";
+import ModernizrWebpackPlugin from "modernizr-webpack-plugin";
 import path from 'path';
 import webpack from 'webpack';
+import modernizrConfig from './modernizr.config';
 
 const ROOT_PATH = path.resolve(__dirname, '../');
 const APP_PATH = path.resolve(ROOT_PATH, 'src');
@@ -24,14 +25,12 @@ export default {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    /*new ModernizrWebpackPlugin({
-      filename: `./modernizr`,
-      noChunk: true,
-      'feature-detects': [
-        'css/transforms3d',
-        'css/transforms'
-      ]
-    }),*/
+    new ModernizrWebpackPlugin(
+      Object.assign(modernizrConfig, {
+          filename: `./modernizr`,
+          noChunk: true
+      })
+    ),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     //new ExtractTextPlugin(SETTINGS.production.styles_target + ".css", {allChunks: true})

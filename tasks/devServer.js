@@ -44,3 +44,4 @@ browserSync({
     'src/*.html'
   ]
 });
+

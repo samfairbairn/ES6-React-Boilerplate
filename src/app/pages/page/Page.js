@@ -8,7 +8,15 @@ import { NICE, SUPER_NICE } from '../../common/constants';
 class Page extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
+
+    /*
+    this.props.addCounter(0, 1, NICE);
+    this.props.addCounter(0, 5, SUPER_NICE);
+    this.props.addCounter(0, 3);
+    this.props.addCounter();
+    this.props.addCounter(100, undefined, 'blue');
+    */
 
     this.incrementCounter = this.incrementCounter.bind(this);
   }
@@ -21,11 +29,9 @@ class Page extends Component {
 
   componentDidMount() {
 
-    this.props.addCounter(0, 1, NICE);
-    this.props.addCounter(0, 5, SUPER_NICE);
-    this.props.addCounter(0, 3);
-    this.props.addCounter();
-    this.props.addCounter(100, undefined, 'blue');
+  }
+
+  componentWillUnmount() {
 
   }
 
@@ -56,7 +62,6 @@ class Page extends Component {
   }
 
   render() {
-    //const { counters } = this.props.counters;
     return (
       <div>
         { this.renderCounters() }

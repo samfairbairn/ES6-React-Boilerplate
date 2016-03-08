@@ -5,6 +5,7 @@ import del from 'del';
 import fs from './lib/fs';
 import cp from './lib/copy';
 import modernizr from 'modernizr';
+import modernizrConfig from './modernizr.config';
 
 async function build() {
 
@@ -13,15 +14,13 @@ async function build() {
   await task( async ()=>{ fs.mkdir('build') } );
 
   await task( async ()=>{
-    modernizr.build({
-      "feature-detects": [
-        "canvas"
-      ]
-    },
-    (result) => {
-      fs.writeFile('build/modernizr.js', result);
-    });
-  } );
+    modernizr.build(
+      modernizrConfig,
+      (result) => {
+        fs.writeFile('build/modernizr.js', result);
+      }
+    );
+  });
 
   await task( async ()=>{
     return new Promise((resolve, reject) => {
