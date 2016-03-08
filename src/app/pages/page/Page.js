@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 import Counter from '../../components/counter/counter';
 import bigImage from './images/superJumbo.jpg';
-import { increment } from '../../common/actions';
+import { increment, addCounter } from '../../common/actions';
+import { NICE, SUPER_NICE } from '../../common/constants';
 
 class Page extends Component {
 
@@ -10,27 +11,43 @@ class Page extends Component {
     super(props)
 
     this.incrementCounter = this.incrementCounter.bind(this);
-    //console.log(dispatch);
   }
 
   static propTypes = {
     counters: PropTypes.object.isRequired,
-    increment: PropTypes.func.isRequired
+    increment: PropTypes.func.isRequired,
+    addCounter: PropTypes.func.isRequired
   };
 
+  componentDidMount() {
+
+    this.props.addCounter(0, 1, NICE);
+    this.props.addCounter(0, 5, SUPER_NICE);
+    this.props.addCounter(0, 3);
+    this.props.addCounter();
+    this.props.addCounter(100, undefined, 'blue');
+
+  }
+
   renderCounters() {
+
     const { counters } = this.props.counters;
+
+    if(!counters) return
+
     var rows = [];
-    for (var i=0; i < counters.length; i++) {
+
+    counters.map((counter)=>{
       rows.push(<Counter
-        key={counters[i].key}
-        id={counters[i].key}
-        increment={counters[i].increment}
-        counter={counters[i].counter}
-        color={ counters[i].color }
+        key={counter.key}
+        id={counter.key}
+        increment={counter.increment}
+        counter={counter.counter}
+        color={ counter.color }
         onTick={ this.incrementCounter }
       />);
-    }
+    });
+
     return rows;
   }
 
@@ -39,7 +56,7 @@ class Page extends Component {
   }
 
   render() {
-    const { counters } = this.props.counters;
+    //const { counters } = this.props.counters;
     return (
       <div>
         { this.renderCounters() }
@@ -55,5 +72,6 @@ function mapStateToProps(state, ownProps) {
 }
 
 export default connect(mapStateToProps, {
-  increment
+  increment,
+  addCounter
 })(Page);
