@@ -7,6 +7,8 @@ var ROOT_PATH = path.resolve(__dirname, '../');
 var APP_PATH = path.resolve(ROOT_PATH, 'src');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
+import config from './config';
+
 export default {
   entry: [
     './src/app/index'
@@ -14,7 +16,7 @@ export default {
   output: {
     path: BUILD_PATH,
     filename: 'bundle.js',
-    //publicPath: "/build/"
+    publicPath: config.build.base ? config.build.base : false
   },
   plugins: [
     new ExtractTextPlugin('styles.css', {
