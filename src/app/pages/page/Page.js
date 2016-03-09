@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Counter from '../../components/counter/counter';
 import bigImage from './images/superJumbo.jpg';
 import { increment, addCounter } from '../../common/actions';
-import { NICE, SUPER_NICE } from '../../common/constants';
+//import { NICE, SUPER_NICE } from '../../common/constants';
 
 class Page extends Component {
 

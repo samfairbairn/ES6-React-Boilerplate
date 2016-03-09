@@ -17,6 +17,9 @@ export default {
     //publicPath: "/build/"
   },
   plugins: [
+    new ExtractTextPlugin('styles.css', {
+      allChunks: true,
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
@@ -38,9 +41,9 @@ export default {
     {
       test: /\.scss$/,
       loader:
-        `style!css!autoprefixer?browsers=last 3 version!sass`
+      //`style!css!autoprefixer?browsers=last 3 version!sass`
       //`style!css!autoprefixer?browsers=last 3 version!sass?includePaths[]=${APP_PATH}`
-      //ExtractTextPlugin.extract("style-loader", `css-loader!autoprefixer-loader?browsers=last 3 version!sass-loader`)
+      ExtractTextPlugin.extract("style-loader", `css-loader!autoprefixer-loader?browsers=last 3 version!sass-loader`)
       //ExtractTextPlugin.extract("style-loader", `css-loader!autoprefixer-loader?browsers=last 3 version!sass-loader?includePaths[]=${APP_PATH}`)
     },
     // Load images
