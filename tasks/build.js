@@ -41,6 +41,7 @@ async function build() {
 
   await task( async function copyFiles(){
     cp('src/index.html', 'build/index.html').then( replaceCSS );
+    cp('src/.htaccess', 'build/.htaccess');
     cp('static', 'build');
   });
 

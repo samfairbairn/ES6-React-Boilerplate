@@ -23,6 +23,9 @@ export default {
     publicPath: DEV ? false : BUILD_PATH
   },
   plugins: [
+    new ExtractTextPlugin('styles.css', {
+      allChunks: true,
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new ModernizrWebpackPlugin(
@@ -47,6 +50,12 @@ export default {
       loader: 'style!css'
     },*/
     // for custom styles
+    { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader') },
+    /*{
+      test: /\.css$/,
+      loader:
+        'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?browsers=last 3 version'
+    },*/
     {
       test: /\.scss$/,
       loader:
@@ -74,5 +83,8 @@ export default {
     { test: /\.(woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: `url-loader?limit=10000&mimetype=application/font-woff` },
     //{ test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: `file-loader?name=${PUBLIC_PATH}[hash].[ext]` }]
     { test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: `file-loader` }]
-  }
+  },
+  postcss: [
+    require('autoprefixer-core')
+  ]
 };

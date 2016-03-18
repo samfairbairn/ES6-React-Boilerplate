@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 import Counter from '../../components/counter/counter';
+import Button from '../../components/button/button';
 import bigImage from './images/superJumbo.jpg';
 import { increment, addCounter } from '../../common/actions';
 //import { NICE, SUPER_NICE } from '../../common/constants';
@@ -64,6 +65,11 @@ class Page extends Component {
   render() {
     return (
       <div>
+        <Button
+          theme="login"
+        >
+          test button
+        </Button>
         { this.renderCounters() }
         <img width="100" src={bigImage} />
       </div>
