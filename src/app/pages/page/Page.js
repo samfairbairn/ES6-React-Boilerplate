@@ -6,6 +6,8 @@ import bigImage from './images/superJumbo.jpg';
 import { increment, addCounter } from '../../common/actions';
 //import { NICE, SUPER_NICE } from '../../common/constants';
 
+import styles from './page.css';
+
 class Page extends Component {
 
   constructor(props) {
@@ -71,7 +73,7 @@ class Page extends Component {
           test button
         </Button>
         { this.renderCounters() }
-        <img width="100" src={bigImage} />
+        <img className={ styles.image } width="100" src={bigImage} />
       </div>
     )}
 }

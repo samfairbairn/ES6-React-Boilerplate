@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import './counter.scss';
+import styles from './counter.css';
 
 export default class extends Component {
   constructor(props) {
@@ -19,7 +19,8 @@ export default class extends Component {
   render() {
     return (
       <div>
-        <p style={{ color: this.props.color }}>
+        <p className={ styles.copy }
+          style={{ color: this.props.color }}>
           Counter ({this.props.increment}): {this.props.counter}
         </p>
         <a onClick={this.tick}>

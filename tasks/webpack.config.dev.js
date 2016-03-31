@@ -44,26 +44,18 @@ export default {
       loaders: ['babel'],
       include: APP_PATH
     },
-    // for suit css base
-    /*{
-      test: /\.css$/,
-      loader: 'style!css'
-    },*/
-    // for custom styles
-    { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader') },
-    /*{
+    {
       test: /\.css$/,
       loader:
-        'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?browsers=last 3 version'
-    },*/
-    {
+        //ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
+        'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
+    },
+    /*{
       test: /\.scss$/,
       loader:
         `style!css!autoprefixer?browsers=last 3 version!sass`
-        //`style!css!autoprefixer?browsers=last 3 version!sass?includePaths[]=${APP_PATH}`
-        //ExtractTextPlugin.extract("style-loader", `css-loader!autoprefixer-loader?browsers=last 3 version!sass-loader`)
-        //ExtractTextPlugin.extract("style-loader", `css-loader!autoprefixer-loader?browsers=last 3 version!sass-loader?includePaths[]=${APP_PATH}`)
-    },
+        //ExtractTextPlugin.extract("style-loader", `css-loader!sass-loader`)
+    },*/
     // Load images
     {
       test: /\.(jpe?g|png|svg)$/i,
@@ -84,7 +76,10 @@ export default {
     //{ test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: `file-loader?name=${PUBLIC_PATH}[hash].[ext]` }]
     { test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: `file-loader` }]
   },
-  postcss: [
-    require('autoprefixer-core')
-  ]
+  postcss: () => {
+    return [
+      require('precss'),
+      require('autoprefixer')({ browsers: ['last 2 versions'] })
+    ];
+  }
 };

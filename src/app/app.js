@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import Header from './components/header/Header'
-import './app.scss';
+import './app.css';
 
 const resizeBrowser = 'RESIZE_BROWSER';
 

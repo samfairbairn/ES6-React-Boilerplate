@@ -1,0 +1,11 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+AddType text/x-component .htc
+
+# if its not a static resource
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# rewrite to index
+RewriteRule (.*) index.html?query=$1 [L]
