@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link, IndexLink} from 'react-router';
-import styles from './header.css';
+import styles from './header.scss';
 import logo from './images/logo.png';
 
 export default class extends Component {

@@ -1,0 +1,8 @@
+assets/**
+backend/**
+build/**
+docs/**
+node_modules/**
+tasks/**
+labs/**
+componentViewer/app/templates/**
