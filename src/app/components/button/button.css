@@ -1,15 +1,15 @@
 .default {
-  padding: 10px;
-  border: 1px solid grey;
-  background: #eaeaea;
+	padding: 10px;
+	border: 1px solid grey;
+	background: #eaeaea;
 }
 
 .selected {
-  composes: default;
-  border-color: black;
+	composes: default;
+	border-color: black;
 }
 
 .disabled {
-  composes: default;
-  pointer-events: none;
+	composes: default;
+	pointer-events: none;
 }

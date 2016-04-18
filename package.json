@@ -6,8 +6,8 @@
   "scripts": {
     "build": "NODE_ENV=production babel-node tasks/run build",
     "start": "babel-node tasks/devServer.js",
-    "lint": "eslint src",
-    "lint:scsslint": "scss-lint"
+    "lint": "babel-node tasks/run lint",
+    "lint:src": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -65,12 +65,13 @@
     "modernizr": "3.3.1",
     "modernizr-webpack-plugin": "^1.0.5",
     "ncp": "^2.0.0",
-    "node-sass":"^3.4.1",
     "postcss-loader": "^0.8.0",
     "precss": "^1.4.0",
     "replace": "0.3.0",
     "rimraf": "^2.4.3",
     "style-loader": "^0.13.0",
+    "stylelint": "^5.4.0",
+    "stylelint-config-standard": "5.0.0",
     "suitcss-base": "~1.0.1",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.9",

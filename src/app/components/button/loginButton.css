@@ -1,16 +1,16 @@
 .default {
-  composes: default from "./button.css";
-  padding: 10px;
-  border: 1px solid #c56f34;
-  background: #eacc83;
+	composes: default from "./button.css";
+	padding: 10px;
+	border: 1px solid #c56f34;
+	background: #eacc83;
 }
 
 .selected {
-  composes: selected from "./button.css";
-  border: 1px solid #c56f34;
-  background: #c56f34;
+	composes: selected from "./button.css";
+	border: 1px solid #c56f34;
+	background: #c56f34;
 }
 
 .disabled {
-  composes: disabled from "./button.css";
+	composes: disabled from "./button.css";
 }

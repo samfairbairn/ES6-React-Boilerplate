@@ -50,21 +50,6 @@ export default {
         //ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
         'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
     },
-    {
-      test: /\.scss$/,
-      loaders: [
-        'style',
-        'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-        'postcss',
-        'sass'
-      ]
-    },
-    /*{
-      test: /\.scss$/,
-      loader:
-        `style!css!autoprefixer?browsers=last 3 version!sass`
-        //ExtractTextPlugin.extract("style-loader", `css-loader!sass-loader`)
-    },*/
     // Load images
     {
       test: /\.(jpe?g|png|svg)$/i,
@@ -87,7 +72,7 @@ export default {
   },
   postcss: () => {
     return [
-      //require('precss'),
+      require('precss'),
       require('autoprefixer')({ browsers: ['last 2 versions'] })
     ];
   }
